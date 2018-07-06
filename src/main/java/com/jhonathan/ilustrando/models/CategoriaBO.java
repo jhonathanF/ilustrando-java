@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author jhonathan
  */
+@Service
 public class CategoriaBO {
 
     @Autowired
@@ -25,7 +27,7 @@ public class CategoriaBO {
     }
 
     @Transactional
-    public Categoria setPessoa(Categoria c) {
+    public Categoria setCategoria(Categoria c) {
         return categoriaDao.save(c);
     }
 }

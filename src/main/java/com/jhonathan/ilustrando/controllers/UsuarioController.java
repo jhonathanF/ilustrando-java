@@ -1,8 +1,8 @@
 package com.jhonathan.ilustrando.controllers;
 
 import com.google.gson.Gson;
-import com.jhonathan.ilustrando.data.entidade.Categoria;
-import com.jhonathan.ilustrando.models.CategoriaBO;
+import com.jhonathan.ilustrando.data.entidade.Usuario;
+import com.jhonathan.ilustrando.models.UsuarioBO;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,66 +15,65 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 /**
  *
  * @author jhonathan
  */
 @Controller
-@RequestMapping(path = "/categoria", produces = MediaType.APPLICATION_JSON_VALUE)
-public class CategoriaController {
+@RequestMapping(path = "/usuarioBo", produces = MediaType.APPLICATION_JSON_VALUE)
+public class UsuarioController {
 
     @Autowired
-    private CategoriaBO categoriaBo;
+    private UsuarioBO usuarioBo;
     private String retorno = "";
     private Gson gson = new Gson();
 
     @GetMapping(path = "/all")
     public @ResponseBody
-    String getAllCategoria() {
+    String getAllUsuario() {
         try {
-            List<Categoria> c = categoriaBo.getlistCategoria();
-            if (c != null) {
-                retorno = gson.toJson(c);
+            List<Usuario> u = usuarioBo.getlistUsuario();
+            if (u != null) {
+                retorno = gson.toJson(u);
             } else {
-                retorno = "Nenhuma Categoria Localizada!";
+                retorno = "Nenhuma Usuario Localizada!";
             }
         } catch (Exception e) {
-            retorno = "Erro ao localizar Categorias";
+            retorno = "Erro ao localizar Usuarios";
         }
         return gson.toJson(retorno);
     }
 
     @GetMapping(path = "/{id}")
     public @ResponseBody
-    String getCategoria(@PathVariable("id") Integer id) {
-        Optional<Categoria> c = null;
+    String getUsuario(@PathVariable("id") Integer id) {
+        Optional<Usuario> u = null;
 
         try {
-            c = categoriaBo.getCategoria(id);
+            u = usuarioBo.getUsuario(id);
         } catch (Exception e) {
-            retorno = "Erro ao localizar Categoria";
+            retorno = "Erro ao localizar Usuario";
         }
-        if (c != null) {
-            retorno = gson.toJson(c.get());
+        if (u != null) {
+            retorno = gson.toJson(u.get());
         }
 
         return retorno;
 
     }
 
-    @PostMapping(path = "/inserir-categoria")
+    @PostMapping(path = "/inserir-usuario")
     public @ResponseBody
-    String setCategoria(@RequestBody Categoria categoria) {
+    String setUsuario(@RequestBody Usuario categoria) {
         try {
-            Categoria p = categoriaBo.setCategoria(categoria);
-            if (p != null) {
-                retorno = gson.toJson(p);
+            Usuario u = usuarioBo.setUsuario(categoria);
+            if (u != null) {
+                retorno = gson.toJson(u);
             } else {
-                retorno = "Categoria não inserida!";
+                retorno = "Usuario não inserida!";
             }
         } catch (Exception e) {
-            retorno = "Erro ao Inserir Categoria";
+            retorno = "Erro ao Inserir Usuario";
         }
         return gson.toJson(retorno);
 

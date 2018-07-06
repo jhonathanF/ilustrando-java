@@ -5,6 +5,7 @@
  */
 package com.jhonathan.ilustrando.data.entidade;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -46,10 +47,8 @@ public class Item implements Serializable {
     private String descricao;
     @JoinColumn(name = "categoria", referencedColumnName = "id")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private Categoria categoria;
-    @JoinColumn(name = "categoria", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Tipo categoria1;
 
     public Item() {
     }
@@ -95,14 +94,6 @@ public class Item implements Serializable {
         this.categoria = categoria;
     }
 
-    public Tipo getCategoria1() {
-        return categoria1;
-    }
-
-    public void setCategoria1(Tipo categoria1) {
-        this.categoria1 = categoria1;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -127,5 +118,5 @@ public class Item implements Serializable {
     public String toString() {
         return "geradorentidades.Item[ id=" + id + " ]";
     }
-    
+
 }

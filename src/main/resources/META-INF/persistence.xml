@@ -3,17 +3,16 @@
   <persistence-unit name="com.jhonathan_Ilustrando_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.jhonathan.ilustrando.data.entidade.TipoGrupo</class>
-    <class>com.jhonathan.ilustrando.data.entidade.Marcas</class>
     <class>com.jhonathan.ilustrando.data.entidade.Usuario</class>
     <class>com.jhonathan.ilustrando.data.entidade.Pessoa</class>
     <class>com.jhonathan.ilustrando.data.entidade.PessoaFisica</class>
     <class>com.jhonathan.ilustrando.data.entidade.Tipo</class>
     <class>com.jhonathan.ilustrando.data.entidade.Item</class>
+    <class>com.jhonathan.ilustrando.data.entidade.Categoria</class>
     <class>com.jhonathan.ilustrando.data.entidade.PessoaJuridica</class>
     <class>com.jhonathan.ilustrando.data.entidade.PessoaEndereco</class>
     <class>com.jhonathan.ilustrando.data.entidade.TransacaoEntrada</class>
     <class>com.jhonathan.ilustrando.data.entidade.TransacaoSaida</class>
-    <class>com.jhonathan.ilustrando.data.entidade.Modelo</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ilustrando?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

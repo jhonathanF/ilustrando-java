@@ -5,10 +5,13 @@
  */
 package com.jhonathan.ilustrando.models;
 
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author jhonathan
  */
+@Service
 public class TransacaoSaidaBO {
     
 }
