@@ -25,9 +25,9 @@ public class ItemBO {
     public Optional<Item> getItem(Integer id) {
         return itemDao.findById(id);
     }
-
+                                                                                                
     @Transactional
-    public Item setPessoa(Item i) {
+    public Item setItem(Item i) {
         return itemDao.save(i);
     }
 }
